@@ -6,11 +6,32 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
+import {ref,onMounted} from "vue";
+import useAxios from "@/composables/useAxios.js";
+
 const modules = [Autoplay, Pagination, Navigation, EffectFade];
+
+const {loading,error,sendRequest} = useAxios();
+const sliders = ref(null);
+const getSliders = async () => {
+    const response = await sendRequest({
+        method: 'get',
+        url: '/v1/slider',
+    });
+    if  (response){
+        sliders.value = response.data.data;
+    }
+}
+onMounted(()=>{
+    getSliders();
+});
+
 </script>
 
 <template>
+
     <Swiper
+        v-if="sliders"
         :autoplay="{
       delay: 5000,
       disableOnInteraction: false,
@@ -30,24 +51,14 @@ const modules = [Autoplay, Pagination, Navigation, EffectFade];
         :grabCursor= "true"
         class="mySwiper"
     >
-        <SwiperSlide >
+        <SwiperSlide v-for="slider in sliders" :key="slider.id">
             <div class="relative w-full h-full">
-                <img src="@/assets/images/service_interior.jpg"
+                <img :src="slider?.image"
                      class="w-full h-full object-cover" alt="">
                 <div class="content text-center">
-                    <h3 class="text-2xl lg:text-6xl mb-5 font-playfair">Redefining Excellence</h3>
-                    <p class="mb-5 font-roboto text-sm lg:text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, autem!</p>
-                    <button class="border-2 border-white px-10 py-2 text-white hover:bg-primary font-roboto">More Info</button>
-                </div>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide >
-            <div class="relative w-full h-full">
-                <img src="@/assets/images/service_design & build package.jpg" class="w-full h-full object-cover"  alt="">
-                <div class="content text-center">
-                    <h3 class="text-2xl lg:text-6xl mb-5 font-playfair">Redefining Excellence</h3>
-                    <p class="mb-5 font-roboto text-sm lg:text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, autem!</p>
-                    <button class="border-2 border-white px-10 py-2 text-white hover:bg-primary font-roboto">More Info</button>
+                    <h3 class="text-2xl lg:text-6xl mb-5 font-playfair">{{ slider?.title }}</h3>
+                    <p class="mb-5 font-roboto text-sm lg:text-md">{{ slider?.sub_title }}</p>
+                    <RouterLink :to="slider?.redirect_url" class="border-2 border-white px-10 py-2 text-white hover:bg-primary font-roboto">More Info</RouterLink>
                 </div>
             </div>
         </SwiperSlide>

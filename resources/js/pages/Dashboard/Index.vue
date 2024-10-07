@@ -62,22 +62,5 @@ onMounted(() => {
             </div>
         </div>
     </div>
-    <div class="flex flex-wrap">
-            <div class="w-1/3" v-for="data in request">
-                <div class="bg-white p-4 relative">
-                    <button @click="deleteRequest(data?.id)" class="absolute top-2 right-2">
-                        <Icon name="material-symbols:delete-outline-sharp" />
-                    </button>
-                    <p class="text-bold mb-3">Type: {{data?.type}}</p>
-                    <p>{{data?.name}}</p>
-                    <p>{{data?.email}}</p>
-                    <p>{{data?.phone}}</p>
-                    <p>{{data?.request}}</p>
-                    <p>{{data?.business}}</p>
-                    <p>{{data?.location}}</p>
-                    <p>{{data?.message}}</p>
-                </div>
-            </div>
-        </div>
     </AppLayout>
 </template>

@@ -27,9 +27,12 @@ const handleFileChange = (image) => {
 }
 
 const form  = ref({
-    url:null,
+    title:null,
+    sub_title:null,
+    redirect_url:null,
     image:null,
-    order_number: null
+    video:null,
+    order_level: null
 })
 
 const onSubmit = async () => {
@@ -61,8 +64,12 @@ const handelDelete = async (id) => {
 }
 
 const reset = () => {
-    form.value.name = null;
-    form.value.order_number = null;
+    form.value.title = null;
+    form.value.sub_title = null;
+    form.value.redirect_url = null;
+    form.value.image = null;
+    form.value.video = null;
+    form.value.order_level = null;
 }
 
 // model
@@ -106,10 +113,16 @@ onMounted(() => {
                         Image
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        url
+                        Title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Sub Title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Redirect URL
                     </th>
                     <th scope="col" class="px-6 py-3 ">
-                        Order Number
+                        Order Level
                     </th>
                     <th scope="col" class="px-6 py-3">
                         action
@@ -117,46 +130,33 @@ onMounted(() => {
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="border-b border-gray-300 hover:bg-gray-600" v-for="item in sliders?.data">
+                <tr class="border-b border-gray-300 hover:bg-gray-200" v-for="slider in sliders?.data">
                     <td class="p-2">
-                        <img class="w-20 h-12" :src="item?.image" alt="">
-                    </td>
-                    <td class="px-6 py-4 text-sm">
-                        {{ item?.url ?? 'Not given' }}
+                        <img class="w-20 h-12" :src="slider?.image" alt="">
                     </td>
                     <td class="px-6 py-4">
-                        {{ item?.order_number }}
+                        {{ slider?.title }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ slider?.sub_title }}
+                    </td>
+                    <td class="px-6 py-4 text-sm">
+                        {{ slider?.redirect_url ? slider?.redirect_url : 'Not given' }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ slider?.order_level }}
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex gap-3">
 
-                            <button @click="handelDelete(item.id)">
+                            <button @click="handelDelete(slider.id)">
                                 <Icon name="material-symbols:delete-outline-rounded"
                                       class="text-red-500 text-2xl"/>
                             </button>
                         </div>
                     </td>
                 </tr>
-                <tr class="border-b border-gray-300 hover:bg-gray-200" v-for="item in 10">
-                    <td class="p-2">
-                        <img class="w-20 h-12" :src="item?.image" alt="">
-                    </td>
-                    <td class="px-6 py-4 text-sm">
-                        {{ item?.url ?? 'Not given' }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ item?.order_number }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="flex gap-3">
 
-                            <button @click="handelDelete(item.id)">
-                                <Icon name="material-symbols:delete-outline-rounded"
-                                      class="text-red-500 text-2xl"/>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
                 </tbody>
             </table>
             <div v-if="loading" class="w-full h-52 flex items-center justify-center">
@@ -170,12 +170,20 @@ onMounted(() => {
     <Modal title="Create New Category" :isOpen="isModalOpened" @modal-close="closeModal">
         <div class="flex flex-wrap pt-5">
             <div class="w-full mb-4">
-                <label for="name" class="block mb-1 text-xs font-normal">Slider url</label>
-                <input v-model="form.name" type="text" class="p-2 rounded border border-primary w-full bg-transparent">
+                <label for="name" class="block mb-1 text-xs font-normal">Title</label>
+                <input v-model="form.title" type="text" class="p-2 rounded border border-primary w-full bg-transparent">
             </div>
             <div class="w-full mb-4">
-                <label for="name" class="block mb-1 text-xs font-normal">Order Number</label>
-                <input v-model="form.order_number" type="number" class="p-2 rounded border border-primary w-full  bg-transparent">
+                <label for="name" class="block mb-1 text-xs font-normal">Sub Title</label>
+                <input v-model="form.sub_title" type="text" class="p-2 rounded border border-primary w-full bg-transparent">
+            </div>
+            <div class="w-full mb-4">
+                <label for="name" class="block mb-1 text-xs font-normal">Redirect URL</label>
+                <input v-model="form.redirect_url" type="text" class="p-2 rounded border border-primary w-full bg-transparent">
+            </div>
+            <div class="w-full mb-4">
+                <label for="name" class="block mb-1 text-xs font-normal">Order Level</label>
+                <input v-model="form.order_level" type="number" class="p-2 rounded border border-primary w-full  bg-transparent">
             </div>
             <div class="w-full mb-4">
                 <div>
@@ -190,8 +198,9 @@ onMounted(() => {
                     </label>
                  </div>
             </div>
+
             <div class="w-full">
-                <button @click="onSubmit" class="w-full bg-primary py-2.5">Save Category</button>
+                <button @click="onSubmit" class="w-full bg-primary text-white py-2.5">Save Category</button>
             </div>
         </div>
     </Modal>

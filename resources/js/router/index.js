@@ -35,7 +35,7 @@ const router = createRouter({
             component: () => import('@/pages/Frontend/Work.vue')
         },
         {
-            path: '/inside-work',
+            path: '/inside-work/:slug',
             name: 'InsideWork',
             component: () => import('@/pages/Frontend/InsideWork.vue')
         },

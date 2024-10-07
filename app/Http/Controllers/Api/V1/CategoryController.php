@@ -51,7 +51,7 @@ class CategoryController extends Controller
 
     public function destroy(string $id)
     {
-        $category = Category::query()->findOrFail($id);
+        $category = Category::query()->where('id', $id)->first();
 
         $category->delete();
 

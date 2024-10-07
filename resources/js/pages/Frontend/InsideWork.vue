@@ -2,16 +2,32 @@
 import Container from "@/components/Layouts/Container.vue";
 import GuestLayout from "@/components/Layouts/GuestLayout.vue";
 import SwiperSlide from "@/components/SwiperSlide.vue";
+import axios from "axios";
+import {onMounted,ref} from "vue";
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const project = ref(null);
+async function getUser(){
+        const response = await axios.get(`http://localhost:8000/api/frontend/project/${route?.params?.slug}`);
+        project.value = response.data;
+}
+onMounted(() => {
+    getUser();
+})
+
 </script>
 
 <template>
     <GuestLayout>
         <section class="py-10 lg:py-20">
             <Container>
+                {{project}}
                 <div class="flex flex-wrap">
                     <div class="w-full lg:w-1/2 ">
                         <div class="px-3">
-                            <h2 class="text-base lg:text-lg font-bold mt-5 lg:mt-0"> Title : Architecture</h2>
+                            <h2 class="text-base lg:text-lg font-bold mt-5 lg:mt-0"> Title : {{project?.data?.title}}</h2>
                             <div>
                                 <div class="flex flex-col ">
                                     <div class="w-full lg:w-3/4">
@@ -41,7 +57,6 @@ import SwiperSlide from "@/components/SwiperSlide.vue";
                             <SwiperSlide />
                         </div>
                     </div>
-
                 </div>
             </Container>
         </section>
