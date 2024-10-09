@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\ProjectController;
+use App\Http\Controllers\Api\Frontend\FrontendController;
 use App\Http\Controllers\Api\V1\SliderController;
 use App\Http\Controllers\Api\Frontend\ProjectController as FrontendProjectController;
 use Illuminate\Http\Request;
@@ -24,6 +25,8 @@ Route::prefix('v1')->group(function () {
 
 //frontend Route
 Route::prefix('frontend')->group(function (){
+ Route::get('/slider', [FrontendController::class, 'allSlider']);
+ Route::get('/category', [FrontendController::class, 'allCategory']);
    Route::apiResources([
        'project' => FrontendProjectController:: class,
    ]);

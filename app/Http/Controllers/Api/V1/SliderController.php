@@ -7,11 +7,12 @@ use App\Http\Resources\V1\SliderResource;
 use App\Http\Requests\V1\SliderRequest;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SliderController extends Controller
 {
 
-    public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+    public function index():\Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         $sliders = Slider::query()
             ->orderBy('order_level')
@@ -38,14 +39,22 @@ class SliderController extends Controller
         return SliderResource::make($slider);
     }
 
-    public function update(Request $request, string $id)
+    public function update(SliderRequest $request, string $id)
     {
-        //
+        $slider = Slider::query()->find($id);
+        $data = $request->validated();
+        if($request->hasFile('images')){
+            $data['image'] = '/storage/'.$request->file('images')->store('uploads','public');
+        }
+        $slider->update($data);
+
+        return SliderResource::make($slider);
     }
 
     public function destroy(string $id)
     {
-        $slider = Slider::find($id);
+        $slider = Slider::query()->find($id);
         $slider->delete();
+        return Response::HTTP_OK;
     }
 }

@@ -138,7 +138,7 @@ onMounted(() => {
                                         </div>
                                         <div class="w-2/3 px-2">
                                             <label for="value">Value</label>
-                                            <input  v-model="item.Value" type="text" class="w-full p-2 rounded bg-transparent border focus:outline-none focus:ring-primary">
+                                            <input  v-model="item.value" type="text" class="w-full p-2 rounded bg-transparent border focus:outline-none focus:ring-primary">
                                         </div>
                                     </div>
                                 </div>

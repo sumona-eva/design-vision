@@ -7,10 +7,18 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 const modules  = [FreeMode, Navigation, Thumbs,Autoplay];
+
+const props = defineProps({
+    slides: {
+        type: Array,
+        required: true,
+    },
+});
+
 </script>
 
 <template>
-    <Container class="lg:pb-12">
+    <div class="lg:pb-12">
         <Swiper
             :breakpoints="{
                 '320': {
@@ -31,28 +39,13 @@ const modules  = [FreeMode, Navigation, Thumbs,Autoplay];
                 :modules="modules"
                 class="mySwiper"
         >
-            <SwiperSlide>
+            <SwiperSlide v-for="slide in slides">
                 <div class="w-full h-full">
-                    <img class="w-full h-full" src="@/assets/images/service/service_architecture.jpg" alt="">
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div class="w-full h-full">
-                    <img class="w-full h-full" src="@/assets/images/service/service_acoustic.jpg" alt="">
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div class="w-full h-full">
-                    <img class="w-full h-full" src="@/assets/images/service/service_epc.jpg" alt="">
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div class="w-full h-full">
-                    <img class="w-full h-full" src="@/assets/images/service/service_interior.jpg" alt="">
+                    <img class="w-full h-full" :src="slide?.url" alt="">
                 </div>
             </SwiperSlide>
         </Swiper>
-    </Container>
+    </div>
 </template>
 
 <style scoped>

@@ -16,7 +16,7 @@ const sliders = ref(null);
 const getSliders = async () => {
     const response = await sendRequest({
         method: 'get',
-        url: '/v1/slider',
+        url: '/frontend/slider',
     });
     if  (response){
         sliders.value = response.data.data;

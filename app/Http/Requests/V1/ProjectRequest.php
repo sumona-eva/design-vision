@@ -26,6 +26,9 @@ class ProjectRequest extends FormRequest
             'order_number' => 'required|integer',
             'cover_image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             'description' => 'nullable|string',
+            'specification' => 'nullable|array',
+            'images' => 'nullable|array',
+
         ];
     }
 }

@@ -117,7 +117,7 @@ onMounted(() => {
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="border-b border-gray-300 hover:bg-gray-600" v-for="item in sliders?.data">
+                <tr class="border-b border-gray-300 hover:bg-gray-200" v-for="item in sliders?.data">
                     <td class="p-2">
                         <img class="w-20 h-12" :src="item?.image" alt="">
                     </td>
@@ -137,26 +137,7 @@ onMounted(() => {
                         </div>
                     </td>
                 </tr>
-                <tr class="border-b border-gray-300 hover:bg-gray-200" v-for="item in 10">
-                    <td class="p-2">
-                        <img class="w-20 h-12" :src="item?.image" alt="">
-                    </td>
-                    <td class="px-6 py-4 text-sm">
-                        {{ item?.url ?? 'Not given' }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ item?.order_number }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="flex gap-3">
 
-                            <button @click="handelDelete(item.id)">
-                                <Icon name="material-symbols:delete-outline-rounded"
-                                      class="text-red-500 text-2xl"/>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
                 </tbody>
             </table>
             <div v-if="loading" class="w-full h-52 flex items-center justify-center">

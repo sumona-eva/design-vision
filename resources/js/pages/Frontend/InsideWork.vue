@@ -5,25 +5,32 @@ import SwiperSlide from "@/components/SwiperSlide.vue";
 import axios from "axios";
 import {onMounted,ref} from "vue";
 import { useRoute } from 'vue-router';
+import useAxios from "@/composables/useAxios.js";
 
 const route = useRoute();
 
+const {loading, error, sendRequest} = useAxios();
+
 const project = ref(null);
-async function getUser(){
-        const response = await axios.get(`http://localhost:8000/api/frontend/project/${route?.params?.slug}`);
-        project.value = response.data;
+const getProject = async () => {
+        const response = await sendRequest({
+            method: 'get',
+            url: `/frontend/project/${route?.params?.slug}`,
+        })
+        if(response) {
+            project.value = response.data;
+        }
 }
 onMounted(() => {
-    getUser();
+    getProject();
 })
 
 </script>
 
 <template>
     <GuestLayout>
-        <section class="py-10 lg:py-20">
+        <section class="py-10 lg:py-20 min-h-[80vh]">
             <Container>
-                {{project}}
                 <div class="flex flex-wrap">
                     <div class="w-full lg:w-1/2 ">
                         <div class="px-3">
@@ -33,17 +40,9 @@ onMounted(() => {
                                     <div class="w-full lg:w-3/4">
                                         <div>
                                             <ul>
-                                                <li class="w-full border-b pb-2 mt-5">
-                                                    <span class="text-base p-4 text-gray-600">Type :</span>
-                                                </li>
-                                                <li class="w-full border-b pb-2 mt-5">
-                                                    <span class="text-base px-4 mt-3 text-gray-600">Location :</span>
-                                                </li>
-                                                <li class="w-full border-b pb-2 mt-5">
-                                                    <span class="text-base px-4 mt-3 text-gray-600">Completion :</span>
-                                                </li>
-                                                <li class="w-full border-b pb-2 mt-5">
-                                                    <span class="text-base px-4 mt-3 text-gray-600">Client :</span>
+                                                <li class="w-full border-b pb-2 mt-5" v-for="item in project?.data?.specification">
+                                                    <span class="text-base p-4 text-gray-600">{{item?.key}} :</span>
+                                                    <span class="text-base p-4 text-gray-600">{{item?.value}} </span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -54,9 +53,14 @@ onMounted(() => {
                     </div>
                     <div class="w-full lg:w-1/2 order-first  lg:order-last">
                         <div class="px-3">
-                            <SwiperSlide />
+                            <SwiperSlide :slides='project?.data?.images' />
                         </div>
                     </div>
+                </div>
+            </Container>
+            <Container>
+                <div v-html="project?.data?.description">
+
                 </div>
             </Container>
         </section>

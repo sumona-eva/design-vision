@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('cover_image');
             $table->integer('order_number');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
