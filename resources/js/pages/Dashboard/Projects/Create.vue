@@ -75,7 +75,7 @@ const onSubmit = async() => {
         url: '/v1/project',
         data: form.value,
         headers: {
-            authorization: `Bearer ${authStore.user.token}`,
+            // authorization: `Bearer ${authStore.user.token}`,
             'Content-Type': 'multipart/form-data'
         }
     });
