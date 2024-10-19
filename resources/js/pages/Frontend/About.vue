@@ -8,7 +8,7 @@
         <Container>
             <h2 class="text-center py-10 text-2xl lg:text-3xl font-semibold">ABOUT US</h2>
 
-            <section class="lg:py-10">
+            <section class="lg:pb-10">
                 <Container>
                     <div class="flex flex-wrap">
                         <div class="w-full lg:w-1/2">
@@ -86,7 +86,7 @@
                 </Container>
             </section>
 
-            <h2 class="text-center py-10 text-2xl lg:text-3xl font-semibold uppercase">principals of the organization</h2>
+            <h2 class="text-center  text-2xl lg:text-3xl font-semibold uppercase">principals of the organization</h2>
 
             <section class="lg:py-10 pb-10 lg:pb-0">
                 <Container>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <div class="px-3 pb-5 lg:pb-0">
+                            <div class="px-3 pb-10 lg:pb-0">
                                 <p class="leading-loose lg:text-base pb-2 font-semibold text-xl text-gray-00 ">Md. Alamgir Jalil</p>
                                 <ul class="leading-loose text-sm text-gray-600 pb-6">
                                     <li>B.Arch. (BUET)</li>
@@ -151,16 +151,15 @@
                                     <li class="text-base italic font-semibold text-gray-700">Former President 2016-2017</li>
                                     <li>Bangladesh-Malaysia Chamber of Commerce & Industry (BMCCi)</li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
                 </Container>
             </section>
 
-            <section class="lg:py-20">
+            <section class="py-10">
                 <Container>
-                    <h2 class="text-center pb-10 lg:pb-20  text-2xl lg:text-3xl font-semibold uppercase">our client</h2>
+                    <h2 class="text-center pb-10  text-2xl lg:text-3xl font-semibold uppercase">our client</h2>
                     <div class="grid grid-cols-2 lg:grid-cols-3 ">
                         <div class="w-full h-20 px-3 py-2 border border-slate-300">
                             <img class="w-full h-full object-contain" src="@/assets/images/group/IIDT.png" alt="">
@@ -183,9 +182,9 @@
                     </div>
                 </Container>
             </section>
-            <section class="pb-10 lg:pb-20 ">
+            <section class="pb-10">
                 <Container>
-                    <h2 class="text-center py-10 lg:py-0 lg:pb-20 text-2xl lg:text-3xl font-semibold uppercase">Major Institutional clients</h2>
+                    <h2 class="text-center py-10 lg:py-0 lg:pb-10 text-2xl lg:text-3xl font-semibold uppercase">Major Institutional clients</h2>
                     <div class="grid grid-cols-2 lg:grid-cols-3 ">
                         <div class="w-full h-20 px-3 py-2 border border-slate-300">
                             <img class="w-full h-full object-contain" src="@/assets/images/client/UNICEF_Logo.png" alt="">

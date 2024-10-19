@@ -70,14 +70,14 @@ import Container from "@/components/Layouts/Container.vue";
                     <div class="w-full lg:w-1/2 ">
                         <div class="px-3">
                             <h2 class="text-xl lg:text-2xl font-bold mt-5 lg:mt-0">ABOUT US</h2>
-                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">Design Vision Associates Ltd. was founded in the year 1998 with a firm committed towards promoting design excellence and cultivating culture
-                                of professionalism in the practice. Design Vision Associates Ltd. run by a team of highly motivated architects and engineers who strive
-                                to provide design and service of highest quality to all projects commissioned. The firm has been commissioned for various types of exciting
-                                projects, residential, industrial, commercial and special type of works. A fully registered architectural consultancy services ranging from concept,
-                                master planning, space planning, project co-ordination and management & feasibility studies for a multitude of building types and structures,
-                                interior design and project implementation for clients in both the public and private sectors.
+                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">Design Vision Associates Ltd. was founded in the year 1998 with a firm committed towards
+                                promoting design excellence and cultivating culture of professionalism in the practice. Design Vision Associates Ltd. run by a team of highly
+                                motivated architects and engineers who strive to provide design and service of highest quality to all projects commissioned. The firm has been
+                                commissioned for various types of exciting projects, residential, industrial, commercial and special type of works. A fully registered architectural
+                                consultancy services ranging from concept, master planning, space planning, project co-ordination and management & feasibility studies for a
+                                multitude of building types and structures, interior design and project implementation for clients in both the public and private sectors.
                             </p>
-                            <RouterLink to="/about" class=" inline-block bg-primary mt-8 text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
+                            <RouterLink to="/about" class=" inline-block bg-primary text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 order-first  lg:order-last">
@@ -100,13 +100,11 @@ import Container from "@/components/Layouts/Container.vue";
                     <div class="w-full lg:w-1/2">
                         <div class="px-3">
                             <h2 class="text-xl lg:text-2xl mt-5 lg:mt-0 font-bold">SERVICES</h2>
-                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
+                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">At Design Vision Associated Ltd, we are proud to provide a comprehensive range of services in the construction sector, with a strong foundation in architectural excellence. Having started as an architectural firm, our expertise and passion continue to drive us in delivering innovative and functional design solutions. Over the years, we have expanded into interior design, where we offer full-service design and supervision for residential, commercial, healthcare, corporate, retail, hospitality, and exhibition spaces.</p>
                             <p class="py-4 leading-loose text-xs lg:text-base text-justify"  >
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiaeserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                            </p>
+                                In addition, we specialize in precision work related to Acoustic & Vibration Control, ensuring optimized environments for various applications. Our extensive experience in Project Management and Design & Build Packages allows us to manage your project seamlessly from concept to completion. We also offer Engineering, Procurement, and Construction (EPC) or Lump Sum Turn Key (LSTK) solutions, catering to the needs of diverse industries.</p>
 
-                            <RouterLink to="/all-services" class="inline-block bg-primary mt-8 text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
+                            <RouterLink to="/all-services" class="inline-block bg-primary text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
                         </div>
                     </div>
                 </div>
@@ -118,13 +116,9 @@ import Container from "@/components/Layouts/Container.vue";
                     <div class="w-full lg:w-1/2">
                         <div class="px-3">
                             <h2 class="text-xl lg:text-2xl mt-5 lg:mt-0 font-bold">WORK</h2>
-                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">At Design Vision Associates Ltd, we have been entrusted with a diverse range of projects across residential, industrial, and commercial sectors, as well as specialized undertakings. Each project showcases our commitment to delivering exceptional results, regardless of scale or complexity. Explore the details of our completed projects, categorized by type and the unique challenges we have overcome. This portfolio highlights our dedication to maintaining the highest professional standards and fulfilling our promise of excellence in every aspect of our work.
                             </p>
-                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiaeserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                            </p>
-
-                            <RouterLink to="/work" class="inline-block bg-primary mt-8 text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
+                            <RouterLink to="/work" class="inline-block bg-primary text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2 order-first  lg:order-last">
@@ -146,13 +140,8 @@ import Container from "@/components/Layouts/Container.vue";
                     <div class="w-full lg:w-1/2">
                         <div class="px-3">
                             <h2 class="text-xl lg:text-2xl mt-5 lg:mt-0 font-bold">CONTACT WITH US</h2>
-                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiaeserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                            </p>
-
-                            <RouterLink to="/contact" class="inline-block bg-primary mt-8 text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
+                            <p class="py-4 leading-loose text-xs lg:text-base text-justify">At Design Vision Associates Ltd, we believe that every project is an opportunity to bring visions to life through innovative design and meticulous execution. Whether you’re looking for architectural expertise, interior design solutions, or comprehensive project management, our experienced team is here to guide you through every step. We specialize in creating spaces that are not only functional but also inspiring, while offering a full range of services including acoustic & vibration control, EPC/LSTK solutions, and design & build packages. Reach out to us today to discuss how we can turn your ideas into reality.</p>
+                            <RouterLink to="/contact" class="inline-block bg-primary text-white px-4 py-1 font-bold ">SEE MORE</RouterLink>
                         </div>
                     </div>
                 </div>
